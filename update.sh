@@ -15,6 +15,7 @@ then
     apt-get install vim -y
     apt-get install wget -y
     apt-get install curl -y
+    apt-get install zip unzip -y
     apt-get install python -y
     apt-get install python3 -y
     apt-get install traceroute -y

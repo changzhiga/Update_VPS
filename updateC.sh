@@ -15,6 +15,7 @@ then
     yum install vim -y
     yum install wget -y
     yum install curl -y
+    yum install zip unzip -y
     yum install python -y
     yum install python3 -y
     yum install traceroute -y
