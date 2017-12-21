@@ -20,7 +20,6 @@ then
     yum install traceroute -y
     yum install net-tools -y
     yum install crontabs -y
-    yum update -y
     echo -e ""
     echo -e "Update finished"
 fi
