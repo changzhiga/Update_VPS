@@ -7,10 +7,11 @@ echo "#           https://pa.ci            #"
 echo "#                                    #"
 echo "######################################"
 echo ""
-if cat /etc/issue | grep -Eqi "debain|ubuntu"; then
+if cat /etc/issue | grep -Eqi "debain|ubuntu"
+then
       read  -n 1 -p "Do you want to update it? [Y/n] "
       if [[ $REPLY =~ ^[Yy]$ ]]
-      then
+        then
           echo -e ""
           apt-get update -y
           apt-get install vim -y
@@ -31,7 +32,8 @@ if cat /etc/issue | grep -Eqi "debain|ubuntu"; then
       then
           reboot
       fi
-elif cat /etc/issue | grep -Eqi "centos|red hat|redhat"; then
+elif cat /etc/issue | grep -Eqi "centos|red hat|redhat"
+then
       read  -n 1 -p "Do you want to update it? [Y/n] "
       if [[ $REPLY =~ ^[Yy]$ ]]
       then
