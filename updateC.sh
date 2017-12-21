@@ -17,7 +17,6 @@ then
     yum install curl -y
     yum install zip unzip -y
     yum install python -y
-    yum install python3 -y
     yum install traceroute -y
     yum install net-tools -y
     yum install crontabs -y
