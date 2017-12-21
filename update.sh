@@ -7,9 +7,7 @@ echo "#           https://pa.ci            #"
 echo "#                                    #"
 echo "######################################"
 echo ""
-echo -e "Are you want to update and install some softwares? "
-echo -e ""
-read  -n 1 -p "Y or N "
+read  -n 1 -p "Do you want to update it? [Y/n] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo -e ""
@@ -27,9 +25,7 @@ then
     echo -e "Update finished"
 fi
 echo ""
-echo -e "Are you want to reboot it? "
-echo -e ""
-read  -n 1 -p "Y or N "
+read  -n 1 -p "Do you want to reboot it? [Y/n] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     reboot
