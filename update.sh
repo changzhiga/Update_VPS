@@ -15,9 +15,13 @@ then
     echo -e ""
     apt-get update -y
     apt-get install vim -y
+    apt-get install wget -y
     apt-get install curl -y
     apt-get install python -y
     apt-get install python3 -y
+    apt-get install traceroute -y
+    apt-get install net-tools -y
+    apt-get install cron -y
     apt-get upgrade -y
     echo -e ""
     echo -e "Update finished"
