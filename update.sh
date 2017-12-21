@@ -9,7 +9,7 @@ echo "######################################"
 echo ""
 echo -e "Are you want to update and install some softwares? "
 echo -e ""
-read -p "Y or N "
+read  -n 1 -p "Y or N "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo -e ""
@@ -25,7 +25,7 @@ fi
 echo ""
 echo -e "Are you want to reboot it? "
 echo -e ""
-read -p "Y or N "
+read  -n 1 -p "Y or N "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     reboot
