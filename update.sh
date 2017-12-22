@@ -26,8 +26,13 @@ then
     echo -e "Update finished"
 fi
 clear
+sync
+echo 1 > /proc/sys/vm/drop_caches
 read  -n 1 -p "Do you want to reboot it? [Y/n] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     reboot
+elif [[ $REPLY =~ ^[Nn]$ ]]
+then
+  echo -e ""
 fi
