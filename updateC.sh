@@ -23,11 +23,9 @@ then
     echo -e ""
     echo -e "Update finished"
 fi
-echo ""
+clear
 read  -n 1 -p "Do you want to reboot it? [Y/n] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     reboot
 fi
-echo -e ""
-clear
