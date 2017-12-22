@@ -30,7 +30,6 @@ read  -n 1 -p "Do you want to reboot it? [Y/n] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     reboot
-else [[ $REPLY =~ ^[Nn]$ ]]
-then
+else
   echo -e ""
 fi
