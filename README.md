@@ -10,6 +10,10 @@ wget --no-check-certificate -O update.sh https://raw.githubusercontent.com/useli
 ```
 wget --no-check-certificate -O updateC.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/updateC.sh && chmod +x updateC.sh && bash updateC.sh
 ```
+### Debian8_ssss.sh
+```
+wget --no-check-certificate -O debain8_ssss.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/debain8_ssss.sh && chmod +x debain8_ssss.sh && bash debain8_ssss.sh
+```
 <br>
 # VPS开荒脚本
 此脚本主要是用来开荒新安装系统的VPS，包括一些常用软件的安装和系统更新。</br>
