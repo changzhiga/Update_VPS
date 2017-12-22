@@ -25,13 +25,13 @@ then
     echo -e ""
     echo -e "Update finished"
 fi
-clear
 sync
 echo 1 > /proc/sys/vm/drop_caches
-read  -n 1 -p "Do you want to reboot it? [Y/n] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    reboot
-else
-  echo -e ""
-fi
+echo -e ""
+echo "The system will reboot in 10 seconds."
+echo "To stop the reboot, press the CTRL+C key to cancel it."
+sleep 7
+echo "The system will reboot in 3 seconds."
+sleep 3
+echo "The system is rebooting."
+reboot
