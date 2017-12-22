@@ -34,6 +34,7 @@ read  -n 1 -p "Do you want to install server speeder? [Y/n] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     wget --no-check-certificate -O appex.sh https://raw.githubusercontent.com/0oVicero0/serverSpeeder_Install/master/appex.sh && chmod +x appex.sh && bash appex.sh install
+    echo -e ""
     echo -e "Serverspeeder installed"
 fi
 sync
@@ -43,6 +44,7 @@ read  -n 1 -p "Do you want to install shadowsocks? [Y/n] "
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh && chmod +x shadowsocks-all.sh && ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
+    echo -e ""
     echo -e "Shadowsocks installed"
 fi
 sync
