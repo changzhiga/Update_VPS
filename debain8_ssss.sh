@@ -51,9 +51,12 @@ sync
 echo 1 > /proc/sys/vm/drop_caches
 echo -e ""
 echo "The system will reboot in 10 seconds."
+echo -e ""
 echo "To stop the reboot, press the CTRL+C key to cancel it."
 sleep 7
+echo -e ""
 echo "The system will reboot in 3 seconds."
 sleep 3
+echo -e ""
 echo "The system is rebooting."
 reboot
