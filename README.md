@@ -19,13 +19,15 @@ wget --no-check-certificate -O debain8_ssss.sh https://raw.githubusercontent.com
 ```
 ### openvz_bbrssD.sh
 Only for vps with Debain8+/Ubuntu 16.04+ 64bits OS!</br>
-The bbr need 16M+ RAM to run, if the RAM is less than 256M, please choose libev version.
+The bbr need 16M+ RAM to run, if the RAM is less than 256M, please choose libev version.</br>
+Only the port between 9000 to 9999 can use bbr. If you want to change it, please check `/root/lkl/run.sh` and `/root/lkl/haproxy.cfg`</br>
 ```
 wget --no-check-certificate -O openvz_bbrssD.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/openvz_bbrssD.sh && chmod +x openvz_bbrssD.sh && bash openvz_bbrssD.sh
 ```
 ### openvz_bbrssC.sh
 Only for vps with CentOS7+ 64bits OS!</br>
-The bbr need 16M+ RAM to run, if the RAM is less than 256M, please choose libev version.
+The bbr need 16M+ RAM to run, if the RAM is less than 256M, please choose libev version.</br>
+Only the port between 9000 to 9999 can use bbr. If you want to change it, please check `/root/lkl/run.sh` and `/root/lkl/haproxy.cfg`</br>
 ```
 wget --no-check-certificate -O openvz_bbrssC.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/openvz_bbrssC.sh && chmod +x openvz_bbrssC.sh && bash openvz_bbrssC.sh
 ```
