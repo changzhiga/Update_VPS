@@ -17,6 +17,12 @@ If the RAM is less than 256M, please choose libev version.</br>
 ```
 wget --no-check-certificate -O debain8_ssss.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/debain8_ssss.sh && chmod +x debain8_ssss.sh && bash debain8_ssss.sh
 ```
+### Debian8_ssssr.sh
+Only for KVM vps with Debain8 64bits OS!</br>
+If the RAM is less than 256M, please choose libev version.</br>
+```
+wget --no-check-certificate -O debain8_ssssr.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/debain8_ssssr.sh && chmod +x debain8_ssssr.sh && bash debain8_ssssr.sh
+```
 ### openvz_bbrssD.sh
 Only for vps with Debain8+/Ubuntu 16.04+ 64bits OS!</br>
 The bbr need 16M+ RAM to run, if the RAM is less than 256M, please choose libev version.</br>
