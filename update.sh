@@ -1,11 +1,12 @@
 #!/bin/bash
+
 clear
-echo "######################################"
-echo "#                                    #"
-echo "#  A update script for new Linux OS  #"
-echo "#           https://pa.ci            #"
-echo "#                                    #"
-echo "######################################"
+echo "  ######################################"
+echo "  #                                    #"
+echo "  #  A update script for new Linux OS  #"
+echo "  #           https://pa.ci            #"
+echo "  #                                    #"
+echo "  ######################################"
 echo ""
 read  -n 1 -p "Do you want to update it? [Y/n] "
 if [[ $REPLY =~ ^[Yy]$ ]]
