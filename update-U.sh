@@ -4,7 +4,7 @@
 clear
 echo "    ################################################"
 echo "    #                                              #"
-echo "    #        Update script for new Linux OS        #"
+echo "    #          Update script for Linux OS          #"
 echo "    #                https://pa.ci                 #"
 echo "    #                 Version 0.2                  #"
 echo "    ################################################"

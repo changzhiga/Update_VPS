@@ -4,7 +4,7 @@
 clear
 echo "    ################################################"
 echo "    #                                              #"
-echo "    #            Install SSSS ON Linux OS          #"
+echo "    #            Install SSSS on Linux OS          #"
 echo "    #                https://pa.ci                 #"
 echo "    #                 Version 0.2                  #"
 echo "    ################################################"
@@ -22,23 +22,35 @@ if [[ ${update} == "y" || ${update} == "Y" ]]; then
 fi
 sync
 echo 1 > /proc/sys/vm/drop_caches
-#Install sercerspeed
+#Install serverspeeder
 echo ""
 read -p "Do you want to install server speeder? [Y/n] " serverspeeder
 if [[ ${serverspeeder} == "y" || ${serverspeeder} == "Y" ]]; then
     wget --no-check-certificate -O appex.sh https://raw.githubusercontent.com/0oVicero0/serverSpeeder_Install/master/appex.sh && chmod +x appex.sh && bash appex.sh install
     echo -e ""
-    echo -e "Serverspeeder installed"
+    echo -e "Serverspeeder finished"
 fi
 sync
 echo 1 > /proc/sys/vm/drop_caches
-#Install BBR
+#Install KVM-BBR
 echo -e ""
-read -p "Do you want to install BBR? [Y/n] " bbr
-if [[ ${bbr} == "y" || ${bbr} == "Y" ]]; then
+read -p "Do you want to install KVM-BBR? [Y/n] " kvm-bbr
+if [[ ${kvm-bbr} == "y" || ${kvm-bbr} == "Y" ]]; then
+  echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+  echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+  sysctl -p
+  sysctl net.ipv4.tcp_available_congestion_control
+  lsmod | grep bbr
+fi
+sync
+echo 1 > /proc/sys/vm/drop_caches
+#Install OpenVZ-BBR
+echo -e ""
+read -p "Do you want to install OpenVZ-BBR? [Y/n] " openvz-bbr
+if [[ ${openvz-bbr} == "y" || ${openvz-bbr} == "Y" ]]; then
     wget --no-check-certificate -O bbr.sh https://github.com/91yun/uml/raw/master/lkl/install.sh && chmod +x bbr.sh && bash bbr.sh
     echo -e ""
-    echo -e "BBR installed"
+    echo -e "BBR finished"
 fi
 sync
 echo 1 > /proc/sys/vm/drop_caches
@@ -48,7 +60,7 @@ read -p "Do you want to install shadowsocks? [Y/n] " shadowsocks
 if [[ ${shadowsocks} == "y" || ${shadowsocks} == "Y" ]]; then
     wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh && chmod +x shadowsocks-all.sh && ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
     echo -e ""
-    echo -e "Shadowsocks installed"
+    echo -e "Shadowsocks finished"
 fi
 sync
 echo 1 > /proc/sys/vm/drop_caches
@@ -58,7 +70,7 @@ read -p "Do you want to install shadowsocksR? [Y/n] " shadowsocksR
 if [[ ${shadowsocksR} == "y" || ${shadowsocksR} == "Y" ]]; then
     wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh && chmod +x shadowsocksR.sh && ./shadowsocksR.sh 2>&1 | tee shadowsocksR.log
     echo -e ""
-    echo -e "ShadowsocksR installed"
+    echo -e "ShadowsocksR finished"
 fi
 sync
 echo 1 > /proc/sys/vm/drop_caches
