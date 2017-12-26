@@ -1,5 +1,5 @@
 # Universal Script
-`version 0.2`
+`version 0.2`</br>
 A new universal version which can work well on CentOS, Ubuntu and Debian.</br>
 </br>
 ### update-U
@@ -23,8 +23,8 @@ wget --no-check-certificate -O ssss-U.sh https://raw.githubusercontent.com/useli
 
 
 
-<br></br>
-`OLD VERSION`
+<br></br><br></br><br></br>
+`OLD VERSION`</br>
 Update VPS(old)
 This is a simple shell script for a new VPS to update and install some softwares automaticly.</br>
 The script for Debian/Ubuntu('update.sh') works well while the script for CentOS/Redhat('updateC.sh') has not been tested.</br>
