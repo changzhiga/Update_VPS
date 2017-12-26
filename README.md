@@ -24,7 +24,7 @@ wget --no-check-certificate -O ssss-U.sh https://raw.githubusercontent.com/useli
 
 
 <br></br><br></br><br></br>
-<p style='color:red'>OLD VERSION</p></br>
+## OLD VERSION
 Update VPS(old)
 This is a simple shell script for a new VPS to update and install some softwares automaticly.</br>
 The script for Debian/Ubuntu('update.sh') works well while the script for CentOS/Redhat('updateC.sh') has not been tested.</br>
