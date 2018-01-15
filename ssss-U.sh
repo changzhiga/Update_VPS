@@ -1,6 +1,6 @@
 #!/bin/bash
 #URL: https://github.com/uselibrary/Update_VPS
-#E-mail: mail@uselib.com
+#E-mail: mail@pa.ci
 clear
 echo "    ################################################"
 echo "    #                                              #"
