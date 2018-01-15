@@ -6,7 +6,7 @@ echo "    ################################################"
 echo "    #                                              #"
 echo "    #            Install SSSS on Linux OS          #"
 echo "    #                https://pa.ci                 #"
-echo "    #                 Version 0.2                  #"
+echo "    #                 Version 0.3                  #"
 echo "    ################################################"
 #Update the Linux OS
 echo ""
@@ -14,14 +14,23 @@ read -p "Do you want to update it? [Y/n] " update
 if [[ ${update} == "y" || ${update} == "Y" ]]; then
   if cat /etc/*-release | grep -Eqi "centos|red hat|redhat"; then
     yum -y update
+    yum -y install virt-what
   elif cat /etc/*-release | grep -Eqi "debian|ubuntu"; then
     apt-get -y update
+    apt-get -y install virt-what
   else
     echo "This release is not supported."
   fi
 fi
-sync
-echo 1 > /proc/sys/vm/drop_caches
+
+if virt-what | grep -Eqi "openvz"; then
+  echo ""
+else
+  echo "drop caches"
+  echo 1 > /proc/sys/vm/drop_caches
+fi
+
+
 #Install serverspeeder
 echo ""
 read -p "Do you want to install server speeder? [Y/n] " serverspeeder
@@ -30,8 +39,14 @@ if [[ ${serverspeeder} == "y" || ${serverspeeder} == "Y" ]]; then
     echo -e ""
     echo -e "Serverspeeder finished"
 fi
-sync
-echo 1 > /proc/sys/vm/drop_caches
+
+if virt-what | grep -Eqi "openvz"; then
+  echo ""
+else
+  echo "drop caches"
+  echo 1 > /proc/sys/vm/drop_caches
+fi
+
 #Install KVM-BBR
 echo -e ""
 read -p "Do you want to install KVM-BBR? [Y/n] " kvm-bbr
@@ -42,8 +57,14 @@ if [[ ${kvm-bbr} == "y" || ${kvm-bbr} == "Y" ]]; then
   sysctl net.ipv4.tcp_available_congestion_control
   lsmod | grep bbr
 fi
-sync
-echo 1 > /proc/sys/vm/drop_caches
+
+if virt-what | grep -Eqi "openvz"; then
+  echo ""
+else
+  echo "drop caches"
+  echo 1 > /proc/sys/vm/drop_caches
+fi
+
 #Install OpenVZ-BBR
 echo -e ""
 read -p "Do you want to install OpenVZ-BBR? [Y/n] " openvz-bbr
@@ -52,8 +73,14 @@ if [[ ${openvz-bbr} == "y" || ${openvz-bbr} == "Y" ]]; then
     echo -e ""
     echo -e "BBR finished"
 fi
-sync
-echo 1 > /proc/sys/vm/drop_caches
+
+if virt-what | grep -Eqi "openvz"; then
+  echo ""
+else
+  echo "drop caches"
+  echo 1 > /proc/sys/vm/drop_caches
+fi
+
 #Install shadowsocks
 echo -e ""
 read -p "Do you want to install shadowsocks? [Y/n] " shadowsocks
@@ -62,8 +89,14 @@ if [[ ${shadowsocks} == "y" || ${shadowsocks} == "Y" ]]; then
     echo -e ""
     echo -e "Shadowsocks finished"
 fi
-sync
-echo 1 > /proc/sys/vm/drop_caches
+
+if virt-what | grep -Eqi "openvz"; then
+  echo ""
+else
+  echo "drop caches"
+  echo 1 > /proc/sys/vm/drop_caches
+fi
+
 #Install shadowsocksR
 echo -e ""
 read -p "Do you want to install shadowsocksR? [Y/n] " shadowsocksR
@@ -72,8 +105,14 @@ if [[ ${shadowsocksR} == "y" || ${shadowsocksR} == "Y" ]]; then
     echo -e ""
     echo -e "ShadowsocksR finished"
 fi
-sync
-echo 1 > /proc/sys/vm/drop_caches
+
+if virt-what | grep -Eqi "openvz"; then
+  echo ""
+else
+  echo "drop caches"
+  echo 1 > /proc/sys/vm/drop_caches
+fi
+
 #Reboot the system
 echo ""
 seconds_left=10
