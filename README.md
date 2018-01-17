@@ -8,14 +8,6 @@ A new universal version which can work well on CentOS, Ubuntu and Debian.</br>
 ```
 wget --no-check-certificate -O ssss-U.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/ssss-U.sh && chmod +x ssss-U.sh && bash ssss-U.sh
 ```
-### update-U
-This is a simple shell script for a new VPS/dedicated to update and install some softwares automaticly.</br>
-It will work better if you personalize configuration on it.</br>
-CentOS 5+/Debian 7+/Ubuntu 14.04+ are all supported.</br>
-`How to use`
-```
-wget --no-check-certificate -O update-U.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/update-U.sh && chmod +x update-U.sh && bash update-U.sh
-```
 
 [1]: https://github.com/0oVicero0/serverSpeeder_Install
 
@@ -23,6 +15,14 @@ wget --no-check-certificate -O update-U.sh https://raw.githubusercontent.com/use
 
 <br></br><br></br><br></br>
 ## OLD VERSION
+update-U
+This is a simple shell script for a new VPS/dedicated to update and install some softwares automaticly.</br>
+It will work better if you personalize configuration on it.</br>
+CentOS 5+/Debian 7+/Ubuntu 14.04+ are all supported.</br>
+`How to use`
+```
+wget --no-check-certificate -O update-U.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/update-U.sh && chmod +x update-U.sh && bash update-U.sh
+```
 Update VPS(old)
 This is a simple shell script for a new VPS to update and install some softwares automaticly.</br>
 The script for Debian/Ubuntu('update.sh') works well while the script for CentOS/Redhat('updateC.sh') has not been tested.</br>
