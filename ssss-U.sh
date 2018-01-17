@@ -10,14 +10,24 @@ echo "    #                 Version 0.3                  #"
 echo "    ################################################"
 #Update the Linux OS
 echo ""
+
+if cat /etc/*-release | grep -Eqi "centos|red hat|redhat"; then
+  yum -y install virt-what
+elif cat /etc/*-release | grep -Eqi "debian|ubuntu"; then
+  apt-get -y install virt-what
+else
+  echo "This release is not supported."
+fi
+
+
 read -p "Do you want to update it? [Y/n] " update
 if [[ ${update} == "y" || ${update} == "Y" ]]; then
   if cat /etc/*-release | grep -Eqi "centos|red hat|redhat"; then
     yum -y update
-    yum -y install virt-what
+    yum -y install unzip
   elif cat /etc/*-release | grep -Eqi "debian|ubuntu"; then
     apt-get -y update
-    apt-get -y install virt-what
+    apt-get -y install unzip
   else
     echo "This release is not supported."
   fi
