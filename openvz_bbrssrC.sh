@@ -1,56 +1,61 @@
 #!/bin/bash
+#URL: https://github.com/uselibrary/Update_VPS
+#E-mail: mail@pa.ci
 clear
-echo "######################################"
-echo "#                                    #"
-echo "#  A update script for new Linux OS  #"
-echo "#           https://pa.ci            #"
-echo "#    For CentOS/RedHat OpenVZ VPS    #"
-echo "#                                    #"
-echo "######################################"
-echo ""
-read  -n 1 -p "Do you want to update it? [Y/n] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    echo -e ""
-    yum update -y
-    yum install vim -y
-    yum install wget -y
-    yum install curl -y
-    yum install zip unzip -y
-    yum install python -y
-    yum install traceroute -y
-    yum install net-tools -y
-    yum install crontabs -y
-    echo -e ""
-    echo -e "Update finished"
-fi
-sync
-echo 1 > /proc/sys/vm/drop_caches
+echo "    ################################################"
+echo "    #                                              #"
+echo "    #         Install BBRSSR on RPM-based OS       #"
+echo "    #                https://pa.ci                 #"
+echo "    #                 Version 0.4                  #"
+echo "    ################################################"
+#Prepare the installation environment
 echo -e ""
-read  -n 1 -p "Do you want to install BBR? [Y/n] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
+echo -e "Prepare the installation environment."
+yum -y update
+if rpm -qa | grep -Eqi "unzip";then
+  echo "unzip installed"
+else
+  echo "unzip installing"
+  yum -y install unzip
+fi
+if rpm -qa | grep -Eqi "virt-what";then
+  echo "virt-what installed"
+else
+  echo "virt-what installing"
+  yum -y install virt-what
+fi
+if rpm -qa | grep -Eqi "net-tools";then
+  echo "net-tools installed"
+else
+  echo "net-tools installing"
+  yum -y install net-tools
+fi
+#Install OpenVZ-BBR
+echo -e ""
+read -p "Do you want to install OpenVZ-BBR? [Y/n] " openvzbbr
+if [[ ${openvzbbr} == "y" || ${openvzbbr} == "Y" ]]; then
     wget --no-check-certificate -O bbr.sh https://github.com/91yun/uml/raw/master/lkl/install.sh && chmod +x bbr.sh && bash bbr.sh
     echo -e ""
-    echo -e "BBR installed"
+    echo -e "OpenVZ-BBR installed"
 fi
-sync
-echo 1 > /proc/sys/vm/drop_caches
+#Install shadowsocksR
 echo -e ""
-read  -n 1 -p "Do you want to install shadowsocks? [Y/n] "
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
+read -p "Do you want to install shadowsocksR? [Y/n] " shadowsocksR
+if [[ ${shadowsocksR} == "y" || ${shadowsocksR} == "Y" ]]; then
     wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh && chmod +x shadowsocksR.sh && ./shadowsocksR.sh 2>&1 | tee shadowsocksR.log
     echo -e ""
-    echo -e "Shadowsocks installed"
+    echo -e "ShadowsocksR installed"
 fi
-sync
-echo 1 > /proc/sys/vm/drop_caches
-echo -e ""
-echo "The system will reboot in 10 seconds."
-echo "To stop the reboot, press the CTRL+C key to cancel it."
-sleep 7
-echo "The system will reboot in 3 seconds."
-sleep 3
+#Reboot the system
+echo ""
+seconds_left=10
+echo -e "The system will reboot in ${seconds_left} seconds.\nTo stop the reboot, press the CTRL+C key to cancel it."
+while [ $seconds_left -gt 0 ];do
+  echo -n $seconds_left
+  sleep 1
+  seconds_left=$(($seconds_left - 1))
+  echo -ne "\r     \r"
+done
 echo "The system is rebooting."
+sleep 1
 reboot

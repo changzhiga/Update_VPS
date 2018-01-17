@@ -1,31 +1,73 @@
 #!/bin/bash
 #URL: https://github.com/uselibrary/Update_VPS
-#E-mail: mail@uselib.com
+#E-mail: mail@pa.ci
 clear
 echo "    ################################################"
 echo "    #                                              #"
-echo "    #          Update script for Linux OS          #"
+echo "    #           Update script for Linux OS         #"
 echo "    #                https://pa.ci                 #"
-echo "    #                 Version 0.2                  #"
+echo "    #                 Version 0.4                  #"
 echo "    ################################################"
-#Update the Linux OS
-echo ""
-read -p "Do you want to update it? [Y/n] " update
-if [[ ${update} == "y" || ${update} == "Y" ]]; then
-  if cat /etc/*-release | grep -Eqi "centos|red hat|redhat"; then
-    yum -y update
-    yum -y install vim wget curl net-tools
-    yum -y upgrade
-  elif cat /etc/*-release | grep -Eqi "debian|ubuntu"; then
-    apt-get -y update
-    apt-get -y install vim wget curl net-tools
-    apt-get -y upgrade
+#Prepare the Update environment
+echo -e ""
+echo -e "Prepare the installation environment."
+if cat /etc/*-release | grep -Eqi "centos|red hat|redhat"; then
+  echo "RPM-based"
+  yum -y update
+  if rpm -qa | grep -Eqi "unzip";then
+    echo "unzip installed"
   else
-    echo "This release is not supported."
+    echo "unzip installing"
+    yum -y install unzip
   fi
+  if rpm -qa | grep -Eqi "virt-what";then
+    echo "virt-what installed"
+  else
+    echo "virt-what installing"
+    yum -y install virt-what
+  fi
+  if rpm -qa | grep -Eqi "net-tools";then
+    echo "net-tools installed"
+  else
+    echo "net-tools installing"
+    yum -y install net-tools
+  fi
+elif cat /etc/*-release | grep -Eqi "debian|ubuntu"; then
+  echo "Debian-based"
+  apt-get -y update
+  if dpkg -l | grep -Eqi "unzip";then
+    echo "unzip installed"
+  else
+    echo "unzip installing"
+    apt-get -y install unzip
+  fi
+  if dpkg -l | grep -Eqi "virt-what";then
+    echo "virt-what installed"
+  else
+    echo "virt-what installing"
+    apt-get -y install virt-what
+  fi
+  if dpkg -l | grep -Eqi "net-tools";then
+    echo "net-tools installed"
+  else
+    echo "net-tools installing"
+    apt-get -y install net-tools
+  fi
+else
+  echo "This release is not supported."
+  exit
 fi
-sync
-echo 1 > /proc/sys/vm/drop_caches
+#Check the virtualization
+echo "Check the virtualization."
+if virt-what | grep -Eqi "openvz"; then
+  vir=1
+else
+  vir=2
+fi
+# drop caches
+if [ "$vir" -eq 2 ]; then
+  echo 1 > /proc/sys/vm/drop_caches
+fi
 #Reboot the system
 echo ""
 seconds_left=10
