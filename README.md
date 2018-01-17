@@ -1,7 +1,13 @@
 # Universal Script
-`version 0.2`</br>
+`version 0.4`</br>
 A new universal version which can work well on CentOS, Ubuntu and Debian.</br>
-</br>
+### ssss-U
+1. Serverspeeder can work well on Debain 8 64bits without any settings, while other OS need a kernel supported. For more details, please click [here][1].
+2. BBR also needs a kernel supported, in general, kernel 4.9+  can use it. If you use a dedicated/KVM vps/Xen vps and so on, you need change the kernel to install KVM-BBR. If you use a OpenVZ vps, please choose the OpenVZ-BBR.
+`How to use`
+```
+wget --no-check-certificate -O ssss-U.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/ssss-U.sh && chmod +x ssss-U.sh && bash ssss-U.sh
+```
 ### update-U
 This is a simple shell script for a new VPS/dedicated to update and install some softwares automaticly.</br>
 It will work better if you personalize configuration on it.</br>
@@ -9,14 +15,6 @@ CentOS 5+/Debian 7+/Ubuntu 14.04+ are all supported.</br>
 `How to use`
 ```
 wget --no-check-certificate -O update-U.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/update-U.sh && chmod +x update-U.sh && bash update-U.sh
-```
-### ssss-U
-Just use it!, you know it!</br>
-1. Serverspeeder can work well on Debain 8 64bits without any settings, while other OS need a kernel supported. For more details, please click [here][1].
-2. BBR also needs a kernel supported, in general, kernel 4.9+  can use it. If you use a dedicated/KVM vps/Xen vps and so on, you need change the kernel to install KVM-BBR or you can install OpenVZ-BBR without any kernel change. If you use a OpenVZ vps, please choose the OpenVZ-BBR.
-`How to use`
-```
-wget --no-check-certificate -O ssss-U.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/ssss-U.sh && chmod +x ssss-U.sh && bash ssss-U.sh
 ```
 
 [1]: https://github.com/0oVicero0/serverSpeeder_Install
