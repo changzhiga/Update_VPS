@@ -1,6 +1,6 @@
 #!/bin/bash
 #URL: https://github.com/uselibrary/Update_VPS
-#E-mail: mail@pa.ci
+#E-mail: emkqson@gmail.com
 clear
 echo "    ################################################"
 echo "    #                                              #"
