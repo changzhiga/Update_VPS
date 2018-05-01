@@ -16,6 +16,12 @@ wget --no-check-certificate -O ssss-U.sh https://raw.githubusercontent.com/useli
 
 <br></br><br></br><br></br>
 ## OLD VERSION
+
+bbr
+```
+wget --no-check-certificate -O bbr.sh https://raw.githubusercontent.com/uselibrary/Update_VPS/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh
+```
+
 update-U
 This is a simple shell script for a new VPS/dedicated to update and install some softwares automaticly.</br>
 It will work better if you personalize configuration on it.</br>
